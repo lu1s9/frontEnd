@@ -1,26 +1,25 @@
-const apiUrl = "https://api.adviceslip.com/advice";
-const adviceId = document.querySelector(".advice-id");
-const adviceText = document.querySelector(".advice-p");
-const reAdvice = document.querySelector(".icon-circle");
+const adviceId = document.querySelector(".advice-id"),
+  adviceText = document.querySelector(".advice-p");
 
-function consumirApi() {
-  fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(
-          `Error al obtener los datos. Código de estado: ${response.status}`,
-        );
-      }
-      return response.json();
-    })
-    .then((data) => {
-      adviceId.textContent = data.slip.id;
-      adviceText.textContent = data.slip.advice;
-    })
-    .catch((error) => {
-      console.error("Error en la solicitud:", error);
-    });
-}
+const consumirApi = async () => {
+    // Displaying loading animation until data is fetched
+  document.querySelector(".loader").style.display = "block";
+  document.querySelector(".advice-p").innerHTML = "";
+  try {
+    const res = await fetch("https://api.adviceslip.com/advice"),
+      json = await res.json();
+    console.log(json);
+    if (!res.ok) throw { status: res.status, statusText: res.statusText };
+    adviceId.textContent = json.slip.id;
+    adviceText.textContent = json.slip.advice;
+    document.querySelector(".loader").style.display = "none";
+  } catch (err) {
+    const message = err.statusText || "Something went wrong";
+    adviceText.textContent = message;
+  }
+};
 
-consumirApi();
-reAdvice.addEventListener("click", consumirApi);
+document.addEventListener("DOMContentLoaded", consumirApi);
+document.addEventListener("click", async (e) => {
+  if (e.target.matches(".icon-circle")) await consumirApi();
+});
