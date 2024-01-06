@@ -97,6 +97,7 @@ a:active {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 0.5rem;
   position: sticky;
@@ -125,6 +126,17 @@ a:active {
 .back {
   background-color: var(--Dark-Blue-Dark-Mode-Elements);
   padding: 1.4rem;
+}
+
+.search-form {
+  width: 100%;
+}
+
+.search-form input {
+  display: block;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 2rem;
 }
 
 @media (min-width: 48rem) {
