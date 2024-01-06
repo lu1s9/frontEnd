@@ -1,0 +1,138 @@
+:root {
+  --Dark-Blue-Dark-Mode-Elements: hsl(209, 23%, 22%);
+  --Very-Dark-Blue-Dark-Mode-Background: hsl(207, 26%, 17%);
+  --Very-Dark-Blue-Light-Mode-Text: hsl(200, 15%, 8%);
+  --Dark-Gray-Light-Mode-Input: hsl(0, 0%, 52%);
+  --Very-Light-Gray-Light-Mode-Background: hsl(0, 0%, 98%);
+  --White-Dark-Mode-Text--Light-Mode-Elements: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* border: 1px dotted red; */
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  background-color: var(--Very-Dark-Blue-Dark-Mode-Background);
+  color: white;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+#root {
+  width: min(87%, 170rem);
+  margin-inline: auto;
+}
+
+.error {
+  font-size: 4rem;
+  color: white;
+  padding: 4rem;
+}
+
+.main {
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 6rem;
+  column-gap: 2.5rem;
+}
+
+.country-card {
+  background-color: var(--Dark-Blue-Dark-Mode-Elements);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.country-card:hover {
+  transform: scale(1.08);
+}
+
+.country-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.3rem;
+  padding: 2rem;
+}
+
+.country-flag {
+  width: 100%;
+  height: 40%;
+}
+
+.title {
+  color: white;
+  font-size: 1.8rem;
+}
+
+.loader {
+  margin: 1rem auto;
+  width: 8rem;
+  height: 8rem;
+}
+
+.dark-mode {
+  margin: 1rem auto;
+  width: 4rem;
+  height: 4rem;
+  color: white;
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--Very-Dark-Blue-Dark-Mode-Background);
+  background-color: var(--Dark-Blue-Dark-Mode-Elements);
+  margin-bottom: 3rem;
+}
+
+.border {
+  background-color: var(--Dark-Blue-Dark-Mode-Elements);
+  padding: 0.3rem;
+  border: none;
+  color: white;
+  width: 30%;
+}
+
+.border-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* padding: 1rem; */
+  gap: 1rem;
+}
+
+.back {
+  background-color: var(--Dark-Blue-Dark-Mode-Elements);
+  padding: 1.4rem;
+}
+
+@media (min-width: 48rem) {
+  .main {
+    flex-direction: row;
+  }
+
+  .country-card {
+    width: 20%;
+  }
+}
